@@ -1,4 +1,4 @@
-name: Build devlop with Sonar
+name: Build develop with Sonar
 on:
   push:
     branches:
