@@ -100,6 +100,17 @@ public class DomainUserServiceTest {
         assertEquals("Testuser",result.get(0).getUserName());
     }
 
+    @Test
+    public void findAllUserByDescription() {
+        List<User> userList = new ArrayList<>();
+        userList.add(createTestUser());
+        when(userRepository.findByDesription(any())).thenReturn(userList);
+
+        List<User> result = domainUserService.findAllUserByDescription("Testuser");
+        assertNotNull(result.get(0));
+        assertEquals("Testuser",result.get(0).getUserDescription());
+    }
+
     private User createTestUser(){
         User user = new User();
         UserType userType = new UserType();
@@ -112,6 +123,7 @@ public class DomainUserServiceTest {
 
         user.setUserId(1);
         user.setUserName("Testuser");
+        user.setUserDescription("Testuser");
         user.setUserNumber(UUID.fromString("586c2084-d545-4fac-b7d3-2319382df14f"));
         user.setUserType(userTypeList);
 

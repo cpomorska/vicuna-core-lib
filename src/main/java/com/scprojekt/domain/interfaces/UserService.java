@@ -14,4 +14,5 @@ public interface UserService {
     void removeUser(User user);
     List<User> findAllUsersByType(UserType type);
     List<User> findAllUserByName(String name);
+    List<User> findAllUserByDescription(String description);
 }
