@@ -51,4 +51,9 @@ public class DomainUserService implements UserService {
     public List<User> findAllUserByName(String name) {
         return userRepository.findByName(name);
     }
+
+    @Override
+    public List<User> findAllUserByDescription(String description) {
+        return userRepository.findByDesription(description);
+    }
 }
