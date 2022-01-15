@@ -1,4 +1,4 @@
-package com.scprojekt.domain.model;
+package com.scprojekt.domain.entities;
 
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
