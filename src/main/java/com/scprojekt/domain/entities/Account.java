@@ -1,12 +1,14 @@
-package com.scprojekt.domain.model;
+package com.scprojekt.domain.entities;
 
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "konto")
 public class Account {

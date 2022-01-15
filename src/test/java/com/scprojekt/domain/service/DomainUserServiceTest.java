@@ -1,8 +1,8 @@
 package com.scprojekt.domain.service;
 
 import com.scprojekt.domain.interfaces.UserRepository;
-import com.scprojekt.domain.model.User;
-import com.scprojekt.domain.model.UserType;
+import com.scprojekt.domain.entities.User;
+import com.scprojekt.domain.entities.UserType;
 import org.junit.Before;
 import org.junit.Test;
 

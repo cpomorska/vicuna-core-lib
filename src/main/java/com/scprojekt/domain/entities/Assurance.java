@@ -1,4 +1,4 @@
-package com.scprojekt.domain.model;
+package com.scprojekt.domain.entities;
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
 import lombok.Data;
@@ -7,17 +7,17 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "versicherungstyp")
-public class AssuranceType {
+@Table(name = "versicherung")
+public class Assurance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="versicherungstypid")
-    long assuranceTypeId;
+    @Column(name="versicherungsid")
+    long assuranceId;
 
     @SQLInjectionSafe
     @Column(name="versicherungstyp")
-    String assuranceVersicherungsType;
+    String assuranceType;
 
     @SQLInjectionSafe
     @Column(name="versicherungstypbeschreibung")

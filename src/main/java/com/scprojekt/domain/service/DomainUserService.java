@@ -2,8 +2,8 @@ package com.scprojekt.domain.service;
 
 import com.scprojekt.domain.interfaces.UserRepository;
 import com.scprojekt.domain.interfaces.UserService;
-import com.scprojekt.domain.model.User;
-import com.scprojekt.domain.model.UserType;
+import com.scprojekt.domain.entities.User;
+import com.scprojekt.domain.entities.UserType;
 
 import java.util.List;
 import java.util.UUID;
