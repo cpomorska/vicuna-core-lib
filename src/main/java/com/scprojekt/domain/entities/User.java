@@ -1,13 +1,17 @@
 package com.scprojekt.domain.entities;
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "benutzer")
 public class User {
