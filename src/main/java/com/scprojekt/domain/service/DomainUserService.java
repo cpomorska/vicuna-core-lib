@@ -1,9 +1,9 @@
 package com.scprojekt.domain.service;
 
-import com.scprojekt.domain.interfaces.UserRepository;
-import com.scprojekt.domain.interfaces.UserService;
-import com.scprojekt.domain.entities.User;
-import com.scprojekt.domain.entities.UserType;
+import com.scprojekt.domain.model.user.UserRepository;
+import com.scprojekt.domain.model.user.UserService;
+import com.scprojekt.domain.model.user.User;
+import com.scprojekt.domain.model.user.UserType;
 
 import java.util.List;
 import java.util.UUID;
@@ -29,7 +29,7 @@ public class DomainUserService implements UserService {
     @Override
     public UUID createUser(User user) {
         userRepository.createEntity(user);
-        return user.getUserNumber();
+        return user.getUserNumber().getUuid();
     }
 
     @Override

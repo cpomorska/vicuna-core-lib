@@ -1,7 +1,4 @@
-package com.scprojekt.domain.interfaces;
-
-import com.scprojekt.domain.entities.User;
-import com.scprojekt.domain.entities.UserType;
+package com.scprojekt.domain.model.user;
 
 import java.util.List;
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package com.scprojekt.domain.entities;
+package com.scprojekt.domain.model.user;
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
 import lombok.Getter;
@@ -6,8 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -22,6 +23,7 @@ public class User {
     @Column(name="benutzerid")
     long userId;
 
+    @NotEmpty
     @ManyToMany(targetEntity = UserType.class, cascade = CascadeType.ALL)
     List<UserType> userType;
 
@@ -29,17 +31,21 @@ public class User {
     @Column(name="benutzername")
     String userName;
 
-    @Column(name="benutzernummer", unique = true, columnDefinition = "BINARY(16)")
-    UUID userNumber;
+    @NotNull
+    @Embedded
+    UserNumber userNumber;
 
+    @NotNull
     @SQLInjectionSafe
     @Column(name="benutzerdescription")
     String userDescription;
 
+    @NotNull
     @SQLInjectionSafe
     @Column(name="benutzerhash")
     String userhash;
 
+    @NotNull
     @SQLInjectionSafe
     @Column(name="benutzersalz")
     String usersalt;
