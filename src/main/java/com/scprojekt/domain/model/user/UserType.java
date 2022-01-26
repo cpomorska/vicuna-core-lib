@@ -1,4 +1,4 @@
-package com.scprojekt.domain.entities;
+package com.scprojekt.domain.model.user;
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
 import lombok.Getter;

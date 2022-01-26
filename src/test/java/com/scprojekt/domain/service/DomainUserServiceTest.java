@@ -1,8 +1,9 @@
 package com.scprojekt.domain.service;
 
-import com.scprojekt.domain.interfaces.UserRepository;
-import com.scprojekt.domain.entities.User;
-import com.scprojekt.domain.entities.UserType;
+import com.scprojekt.domain.model.user.UserNumber;
+import com.scprojekt.domain.model.user.UserRepository;
+import com.scprojekt.domain.model.user.User;
+import com.scprojekt.domain.model.user.UserType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,7 +39,7 @@ public class DomainUserServiceTest {
         UUID testUuid = UUID.fromString("586c2084-d545-4fac-b7d3-2319382df14f");
         when(userRepository.findByUUID(testUuid)).thenReturn(createTestUser());
         User result = domainUserService.getUser(testUuid);
-        assertEquals(testUuid, result.getUserNumber());
+        assertEquals(testUuid, result.getUserNumber().getUuid());
     }
 
     @Test
@@ -57,13 +58,13 @@ public class DomainUserServiceTest {
         User testUser = createTestUser();
         when(userRepository.findByUUID(any())).thenReturn(testUser);
 
-        assertEquals(orgUuid,testUser.getUserNumber());
-        testUser.setUserNumber(testUuid);
+        assertEquals(orgUuid,testUser.getUserNumber().getUuid());
+        testUser.setUserNumber(new UserNumber(testUuid));
 
         domainUserService.updateUser(testUser);
         User result = domainUserService.getUser(testUuid);
         assertNotNull("Result should not be null", result);
-        assertEquals(testUuid,result.getUserNumber());
+        assertEquals(testUuid,result.getUserNumber().getUuid());
     }
 
     @Test
@@ -124,7 +125,7 @@ public class DomainUserServiceTest {
         user.setUserId(1);
         user.setUserName("Testuser");
         user.setUserDescription("Testuser");
-        user.setUserNumber(UUID.fromString("586c2084-d545-4fac-b7d3-2319382df14f"));
+        user.setUserNumber(new UserNumber(UUID.fromString("586c2084-d545-4fac-b7d3-2319382df14f")));
         user.setUserType(userTypeList);
 
         return user;

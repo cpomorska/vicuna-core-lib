@@ -1,4 +1,4 @@
-package com.scprojekt.domain.interfaces;
+package com.scprojekt.domain.shared;
 
 import java.util.List;
 

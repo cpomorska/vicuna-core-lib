@@ -1,5 +1,4 @@
-package com.scprojekt.domain.entities;
-
+package com.scprojekt.domain.model.customer;
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
 import lombok.Getter;
@@ -12,19 +11,19 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "kundentyp")
-public class CustomerType {
+@Table(name = "kostentyp")
+public class CostType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="kundentypid")
-    long customerTypeId;
+    @Column(name="kostentypid")
+    long costTypeId;
 
     @SQLInjectionSafe
-    @Column(name="kundentyp")
-    String customerRoleType;
+    @Column(name="kostentyp")
+    String costKostenType;
 
     @SQLInjectionSafe
-    @Column(name="kundentypbeschreibung")
-    String customerTypeDescription;
+    @Column(name="kostentypbeschreibung")
+    String costTypeDescription;
 }

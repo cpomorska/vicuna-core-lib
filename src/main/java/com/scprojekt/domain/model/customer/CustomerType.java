@@ -1,4 +1,4 @@
-package com.scprojekt.domain.entities;
+package com.scprojekt.domain.model.customer;
 
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
@@ -12,19 +12,19 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "kontotyp")
-public class AccountType {
+@Table(name = "kundentyp")
+public class CustomerType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="kontotypid")
-    long accountTypeId;
+    @Column(name="kundentypid")
+    long customerTypeId;
 
     @SQLInjectionSafe
-    @Column(name="kontotyp")
-    String accountKontoType;
+    @Column(name="kundentyp")
+    String customerRoleType;
 
     @SQLInjectionSafe
-    @Column(name="kontotypbeschreibung")
-    String accountTypeDescription;
+    @Column(name="kundentypbeschreibung")
+    String customerTypeDescription;
 }
