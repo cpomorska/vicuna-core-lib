@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Getter
@@ -25,29 +24,21 @@ public class User {
 
     @NotEmpty
     @ManyToMany(targetEntity = UserType.class, cascade = CascadeType.ALL)
+    @Column(nullable = false)
     List<UserType> userType;
 
     @SQLInjectionSafe
-    @Column(name="benutzername")
+    @Column(name="benutzername", nullable = false)
     String userName;
 
-    @NotNull
     @Embedded
+    @Column(nullable = false)
     UserNumber userNumber;
 
-    @NotNull
     @SQLInjectionSafe
     @Column(name="benutzerdescription")
     String userDescription;
 
-    @NotNull
-    @SQLInjectionSafe
-    @Column(name="benutzerhash")
-    String userhash;
-
-    @NotNull
-    @SQLInjectionSafe
-    @Column(name="benutzersalz")
-    String usersalt;
-
+    @Embedded
+    UserHash userHash;
 }
