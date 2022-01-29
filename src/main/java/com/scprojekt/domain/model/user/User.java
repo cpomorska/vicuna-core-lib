@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Getter
@@ -35,6 +36,7 @@ public class User {
     @Column(nullable = false)
     UserNumber userNumber;
 
+    @NotNull
     @SQLInjectionSafe
     @Column(name="benutzerdescription")
     String userDescription;
