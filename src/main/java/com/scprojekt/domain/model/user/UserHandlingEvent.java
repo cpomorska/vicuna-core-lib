@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
@@ -25,5 +25,5 @@ public class UserHandlingEvent {
 
     @NotNull
     @Column(name = "eventTriggerdTime")
-    private LocalDateTime eventTriggerdTime;
+    private LocalDateTime eventTriggeredTime;
 }

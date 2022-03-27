@@ -1,11 +1,11 @@
 package com.scprojekt.domain.model.user;
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -24,8 +24,8 @@ public class User {
     long userId;
 
     @NotEmpty
-    @ManyToMany(targetEntity = UserType.class, cascade = CascadeType.ALL)
-    @Column(nullable = false)
+    @ManyToMany(targetEntity = UserType.class, cascade = CascadeType.MERGE)
+    @JoinColumn(nullable = false)
     List<UserType> userType;
 
     @SQLInjectionSafe

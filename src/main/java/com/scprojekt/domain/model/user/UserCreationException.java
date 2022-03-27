@@ -1,9 +1,9 @@
 package com.scprojekt.domain.model.user;
 
-import lombok.NoArgsConstructor;
-
 public class UserCreationException extends UserException {
-    private final UserNumber userNumber;
+
+	private static final long serialVersionUID = 1L;
+	private final UserNumber userNumber;
 
     public UserCreationException(UserNumber userNumber){
         this.userNumber = userNumber;

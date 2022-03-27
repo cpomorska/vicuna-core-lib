@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 @Getter
@@ -27,6 +27,6 @@ public class UserType {
     @Column(name="benutzertypbeschreibung")
     String userTypeDescription;
 
-    @ManyToMany
+    @OneToMany
     List<User> user;
 }

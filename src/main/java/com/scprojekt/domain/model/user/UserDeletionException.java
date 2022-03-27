@@ -2,7 +2,9 @@ package com.scprojekt.domain.model.user;
 
 
 public class UserDeletionException extends UserException {
-    private final UserNumber userNumber;
+
+	private static final long serialVersionUID = 1L;
+	private final UserNumber userNumber;
 
     public UserDeletionException(UserNumber userNumber) {
         this.userNumber = userNumber;

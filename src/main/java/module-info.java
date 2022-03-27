@@ -1,6 +1,6 @@
 module vicuna.core.lib {
     requires static lombok;
-    requires java.persistence;
+    requires jakarta.persistence;
     requires java.validation;
 
     exports com.scprojekt.domain.model.assurance;

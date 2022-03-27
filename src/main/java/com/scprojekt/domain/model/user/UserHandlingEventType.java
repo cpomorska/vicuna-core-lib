@@ -1,11 +1,14 @@
 package com.scprojekt.domain.model.user;
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 
 @Getter
 @Setter
