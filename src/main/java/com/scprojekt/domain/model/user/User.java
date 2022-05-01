@@ -1,7 +1,7 @@
 package com.scprojekt.domain.model.user;
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

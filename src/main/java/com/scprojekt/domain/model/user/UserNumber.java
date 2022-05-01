@@ -1,12 +1,12 @@
 package com.scprojekt.domain.model.user;
 
-import jakarta.persistence.Lob;
+import javax.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.UUID;
