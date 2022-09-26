@@ -1,20 +1,19 @@
 package com.scprojekt.domain.service;
 
+import com.scprojekt.domain.model.user.User;
 import com.scprojekt.domain.model.user.UserRepository;
 import com.scprojekt.domain.model.user.UserService;
-import com.scprojekt.domain.model.user.User;
 import com.scprojekt.domain.model.user.UserType;
+import jakarta.inject.Inject;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.UUID;
 
+@RequiredArgsConstructor(onConstructor_ = @Inject)
 public class DomainUserService implements UserService {
 
     private final UserRepository userRepository;
-
-    public DomainUserService(UserRepository userRepository){
-        this.userRepository = userRepository;
-    }
 
     @Override
     public User getUser(long id) {
