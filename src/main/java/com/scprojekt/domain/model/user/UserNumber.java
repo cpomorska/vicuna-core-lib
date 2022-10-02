@@ -19,7 +19,7 @@ public class UserNumber implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Lob
-    @Column(name="benutzernummer", unique = true, updatable = false, columnDefinition = "BINARY(255)")
+    @Column(name="benutzernummer", unique = true, updatable = false, columnDefinition = "BINARY(16)")
     @NotEmpty(message = "benutzernummer cannot be empty.")
     private UUID uuid;
 }
