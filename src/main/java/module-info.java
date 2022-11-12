@@ -4,6 +4,7 @@ module vicuna.core.lib {
     requires jakarta.inject;
     requires jakarta.validation;
 
+
     exports com.scprojekt.domain.model.assurance;
     exports com.scprojekt.domain.model.banking;
     exports com.scprojekt.domain.model.customer;
