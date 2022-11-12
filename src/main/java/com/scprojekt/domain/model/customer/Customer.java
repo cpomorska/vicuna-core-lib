@@ -1,12 +1,12 @@
 package com.scprojekt.domain.model.customer;
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import jakarta.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter

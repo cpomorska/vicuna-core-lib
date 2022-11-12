@@ -2,12 +2,12 @@ package com.scprojekt.domain.model.user;
 
 import com.scprojekt.domain.validation.SQLInjectionSafe;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Getter

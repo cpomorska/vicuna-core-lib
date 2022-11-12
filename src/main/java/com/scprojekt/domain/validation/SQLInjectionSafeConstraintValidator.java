@@ -1,7 +1,8 @@
 package com.scprojekt.domain.validation;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -45,6 +46,7 @@ public class SQLInjectionSafeConstraintValidator implements ConstraintValidator<
     public void initialize(SQLInjectionSafe sqlInjectionSafe) {
         //NOSONAR
     }
+
     @Override
     public boolean isValid(String dataString, ConstraintValidatorContext cxt) {
         return isSqlInjectionSafe(dataString);
