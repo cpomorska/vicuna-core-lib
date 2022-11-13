@@ -2,7 +2,8 @@ module vicuna.core.lib {
     requires static lombok;
     requires jakarta.persistence;
     requires jakarta.inject;
-    requires java.validation;
+    requires jakarta.validation;
+
 
     exports com.scprojekt.domain.model.assurance;
     exports com.scprojekt.domain.model.banking;
