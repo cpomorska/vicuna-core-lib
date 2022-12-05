@@ -29,7 +29,7 @@ public class DomainUserServiceTest {
 
     @Test
     public void getUserById() {
-        when(userRepository.findById(1)).thenReturn(createTestUser());
+        when(userRepository.findByIdInRepository(1)).thenReturn(createTestUser());
         User result = domainUserService.getUser(1);
         assertEquals(1, result.getUserId());
     }
@@ -105,7 +105,7 @@ public class DomainUserServiceTest {
     public void findAllUserByDescription() {
         List<User> userList = new ArrayList<>();
         userList.add(createTestUser());
-        when(userRepository.findByDesription(any())).thenReturn(userList);
+        when(userRepository.findByDescription(any())).thenReturn(userList);
 
         List<User> result = domainUserService.findAllUserByDescription("Testuser");
         assertNotNull(result.get(0));

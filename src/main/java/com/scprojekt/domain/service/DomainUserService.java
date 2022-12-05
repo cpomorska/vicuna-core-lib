@@ -17,7 +17,7 @@ public class DomainUserService implements UserService {
 
     @Override
     public User getUser(long id) {
-        return userRepository.findById(id);
+        return userRepository.findByIdInRepository(id);
     }
 
     @Override
@@ -53,6 +53,6 @@ public class DomainUserService implements UserService {
 
     @Override
     public List<User> findAllUserByDescription(String description) {
-        return userRepository.findByDesription(description);
+        return userRepository.findByDescription(description);
     }
 }

@@ -9,5 +9,5 @@ public interface UserRepository extends BaseRepository<User> {
     User findByUUID(UUID uuid);
     List<User> findByType(UserType type);
     List<User> findByName(String name);
-    List<User> findByDesription(String description);
+    List<User> findByDescription(String description);
 }
