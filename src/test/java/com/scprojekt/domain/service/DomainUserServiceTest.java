@@ -4,14 +4,14 @@ import com.scprojekt.domain.model.user.UserNumber;
 import com.scprojekt.domain.model.user.UserRepository;
 import com.scprojekt.domain.model.user.User;
 import com.scprojekt.domain.model.user.UserType;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -21,7 +21,7 @@ public class DomainUserServiceTest {
     private DomainUserService domainUserService;
     private UserRepository userRepository;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         userRepository = mock(UserRepository.class);
         domainUserService = new DomainUserService(userRepository);
@@ -47,7 +47,7 @@ public class DomainUserServiceTest {
         UUID testUuid = UUID.fromString("586c2084-d545-4fac-b7d3-2319382df14f");
         User testUser = createTestUser();
         UUID result = domainUserService.createUser(testUser);
-        assertNotNull("Result should not be null", result);
+        assertNotNull(result);
         assertEquals(testUuid,result);
     }
 
@@ -63,7 +63,7 @@ public class DomainUserServiceTest {
 
         domainUserService.updateUser(testUser);
         User result = domainUserService.getUser(testUuid);
-        assertNotNull("Result should not be null", result);
+        assertNotNull(result);
         assertEquals(testUuid,result.getUserNumber().getUuid());
     }
 
@@ -75,7 +75,7 @@ public class DomainUserServiceTest {
 
         domainUserService.removeUser(testUser);
         User result = domainUserService.getUser(testUuid);
-        assertNull("Result should be null", result);
+        assertNull(result);
     }
 
     @Test
