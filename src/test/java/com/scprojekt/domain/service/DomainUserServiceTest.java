@@ -11,12 +11,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class DomainUserServiceTest {
+
+    private static final String TESTUSER = "Testuser";
+    private static final String TESTROLE = "Testrole";
+    private  static final String UUID_USER_1 = "586c2084-d545-4fac-b7d3-2319382df14f";
+    private static final String UUID_USER_2 = "35fa10da-594a-4601-a7b7-0a707a3c1ce7";
 
     private DomainUserService domainUserService;
     private UserRepository userRepository;
@@ -28,88 +33,86 @@ public class DomainUserServiceTest {
     }
 
     @Test
-    public void getUserById() {
+    void getUserById() {
         when(userRepository.findByIdInRepository(1)).thenReturn(createTestUser());
         User result = domainUserService.getUser(1);
-        assertEquals(1, result.getUserId());
+        assertThat(result.getUserId()).isEqualTo(1);
     }
 
     @Test
-    public void getUserByUUID() {
-        UUID testUuid = UUID.fromString("586c2084-d545-4fac-b7d3-2319382df14f");
+    void getUserByUUID() {
+        UUID testUuid = java.util.UUID.fromString(UUID_USER_1);
         when(userRepository.findByUUID(testUuid)).thenReturn(createTestUser());
         User result = domainUserService.getUser(testUuid);
-        assertEquals(testUuid, result.getUserNumber().getUuid());
+        assertThat(result.getUserNumber().getUuid()).isEqualTo(testUuid);
     }
 
     @Test
-    public void createUser() {
-        UUID testUuid = UUID.fromString("586c2084-d545-4fac-b7d3-2319382df14f");
+    void createUser() {
+        UUID testUuid = java.util.UUID.fromString(UUID_USER_1);
         User testUser = createTestUser();
         UUID result = domainUserService.createUser(testUser);
-        assertNotNull(result);
-        assertEquals(testUuid,result);
+        assertThat(result).isNotNull().isEqualTo(testUuid);
     }
 
     @Test
-    public void updateUser() {
-        UUID orgUuid = UUID.fromString("586c2084-d545-4fac-b7d3-2319382df14f");
-        UUID testUuid = UUID.fromString("35fa10da-594a-4601-a7b7-0a707a3c1ce7");
+    void updateUser() {
+        UUID orgUuid = java.util.UUID.fromString(UUID_USER_1);
+        UUID testUuid = java.util.UUID.fromString(UUID_USER_2);
         User testUser = createTestUser();
         when(userRepository.findByUUID(any())).thenReturn(testUser);
 
-        assertEquals(orgUuid,testUser.getUserNumber().getUuid());
+        assertThat(testUser.getUserNumber().getUuid()).isEqualTo(orgUuid);
         testUser.setUserNumber(new UserNumber(testUuid));
 
         domainUserService.updateUser(testUser);
         User result = domainUserService.getUser(testUuid);
-        assertNotNull(result);
-        assertEquals(testUuid,result.getUserNumber().getUuid());
+        assertThat(result.getUserNumber().getUuid()).isNotNull().isEqualTo(testUuid);
     }
 
     @Test
-    public void removeUser() {
-        UUID testUuid = UUID.fromString("586c2084-d545-4fac-b7d3-2319382df14f");
+    void removeUser() {
+        UUID testUuid = java.util.UUID.fromString(UUID_USER_1);
         User testUser = createTestUser();
         when(userRepository.findByUUID(any())).thenReturn(null);
 
         domainUserService.removeUser(testUser);
         User result = domainUserService.getUser(testUuid);
-        assertNull(result);
+        assertThat(result).isNull();
     }
 
     @Test
-    public void findAllUsersByType() {
+    void findAllUsersByType() {
         List<User> userList = new ArrayList<>();
         userList.add(createTestUser());
         UserType expectedType = userList.get(0).getUserType().get(0);
         when(userRepository.findByType(any())).thenReturn(userList);
 
         List<User> result = domainUserService.findAllUsersByType(expectedType);
-        assertNotNull(result.get(0));
-        assertEquals(expectedType,result.get(0).getUserType().get(0));
+        assertThat(result.get(0)).isNotNull();
+        assertThat(result.get(0).getUserType().get(0)).isEqualTo(expectedType);
     }
 
     @Test
-    public void findAllUserByName() {
+    void findAllUserByName() {
         List<User> userList = new ArrayList<>();
         userList.add(createTestUser());
         when(userRepository.findByName(any())).thenReturn(userList);
 
-        List<User> result = domainUserService.findAllUserByName("Testuser");
-        assertNotNull(result.get(0));
-        assertEquals("Testuser",result.get(0).getUserName());
+        List<User> result = domainUserService.findAllUserByName(TESTUSER);
+        assertThat(result.get(0)).isNotNull();
+        assertThat(result.get(0).getUserName()).isEqualTo(TESTUSER);
     }
 
     @Test
-    public void findAllUserByDescription() {
+    void findAllUserByDescription() {
         List<User> userList = new ArrayList<>();
         userList.add(createTestUser());
         when(userRepository.findByDescription(any())).thenReturn(userList);
 
-        List<User> result = domainUserService.findAllUserByDescription("Testuser");
-        assertNotNull(result.get(0));
-        assertEquals("Testuser",result.get(0).getUserDescription());
+        List<User> result = domainUserService.findAllUserByDescription(TESTUSER);
+        assertThat(result.get(0)).isNotNull();
+        assertThat(result.get(0).getUserDescription()).isEqualTo(TESTUSER);
     }
 
     private User createTestUser(){
@@ -118,14 +121,14 @@ public class DomainUserServiceTest {
         List<UserType> userTypeList = new ArrayList<>();
 
         userType.setUserTypeId(1);
-        userType.setUserRoleType("testrole");
-        userType.setUserTypeDescription("Testuser");
+        userType.setUserRoleType(TESTROLE);
+        userType.setUserTypeDescription(TESTUSER);
         userTypeList.add(userType);
 
         user.setUserId(1);
-        user.setUserName("Testuser");
-        user.setUserDescription("Testuser");
-        user.setUserNumber(new UserNumber(UUID.fromString("586c2084-d545-4fac-b7d3-2319382df14f")));
+        user.setUserName(TESTUSER);
+        user.setUserDescription(TESTUSER);
+        user.setUserNumber(new UserNumber(java.util.UUID.fromString(UUID_USER_1)));
         user.setUserType(userTypeList);
 
         return user;
