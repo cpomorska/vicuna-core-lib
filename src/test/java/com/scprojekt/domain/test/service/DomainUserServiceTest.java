@@ -24,11 +24,6 @@ class DomainUserServiceTest {
     private  static final String UUID_USER_1 = "586c2084-d545-4fac-b7d3-2319382df14f";
     private static final String UUID_USER_2 = "35fa10da-594a-4601-a7b7-0a707a3c1ce7";
 
-    private static final String TESTUSER = "Testuser";
-    private static final String TESTROLE = "Testrole";
-    private  static final String UUID_USER_1 = "586c2084-d545-4fac-b7d3-2319382df14f";
-    private static final String UUID_USER_2 = "35fa10da-594a-4601-a7b7-0a707a3c1ce7";
-
     private DomainUserService domainUserService;
     private UserRepository userRepository;
 
