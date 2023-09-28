@@ -1,0 +1,29 @@
+package com.scprojekt.domain.core.model.user.event;
+
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+public class UserHandlingEvent {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @NotNull
+    @OneToOne
+    @JoinColumn(name= "usereventype_id")
+    private UserHandlingEventType userHandlingEventType;
+
+    @NotNull
+    @Column(name = "eventTriggerdTime")
+    private LocalDateTime eventTriggeredTime;
+}
