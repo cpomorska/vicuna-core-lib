@@ -27,6 +27,7 @@
         <jaccoco.version>0.8.9</jaccoco.version>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <surefire.version>3.0.0</surefire.version>
+        <jackson.version>2.15.2</jackson.version>
     </properties>
 
     <dependencies>
@@ -81,12 +82,12 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.15.2</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.15.2</version>
+            <version>${jackson.version}</version>
         </dependency>
     </dependencies>
 
