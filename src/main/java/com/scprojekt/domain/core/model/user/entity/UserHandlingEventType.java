@@ -1,10 +1,8 @@
-package com.scprojekt.domain.core.model.user.event;
+package com.scprojekt.domain.core.model.user.entity;
 
+import com.scprojekt.domain.core.shared.database.BaseEntity;
 import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,12 +12,14 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-public class UserHandlingEventType {
+@Table(name = "userhandlingeventtype")
+public class UserHandlingEventType extends BaseEntity {
 
     @Id
     @GeneratedValue
     private Long id;
 
+    @SQLInjectionSafe
     @Column(nullable = false)
     String eventType;
 

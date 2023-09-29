@@ -1,5 +1,6 @@
-package com.scprojekt.domain.core.model.user.event;
+package com.scprojekt.domain.core.model.user.entity;
 
+import com.scprojekt.domain.core.shared.database.BaseEntity;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,8 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
-public class UserHandlingEvent {
+@Table(name = "userhandlingevent")
+public class UserHandlingEvent extends BaseEntity {
 
     @Id
     @GeneratedValue
