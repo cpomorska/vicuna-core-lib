@@ -1,5 +1,6 @@
-package com.scprojekt.domain.core.service;
+package com.scprojekt.example;
 
+import com.scprojekt.domain.core.model.user.dto.UuidResponse;
 import com.scprojekt.domain.core.model.user.entity.User;
 import com.scprojekt.domain.core.model.user.entity.UserType;
 import com.scprojekt.domain.core.model.user.repository.UserRepository;
@@ -16,43 +17,43 @@ public class DomainUserService implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public User getUser(long id) {
+    public User getById(long id) {
         return userRepository.findByIdInRepository(id);
     }
 
     @Override
-    public User getUser(UUID userNumber) {
-        return userRepository.findByUUID(userNumber);
+    public User getByUuid(UUID uuid) {
+        return userRepository.findByUUID(uuid);
     }
 
     @Override
-    public UUID createUser(User user) {
+    public UuidResponse create(User user) {
         userRepository.createEntity(user);
-        return user.getUserNumber().getUuid();
+        return new UuidResponse(user.getUserNumber().getUuid());
     }
 
     @Override
-    public void updateUser(User user) {
+    public void update(User user) {
         userRepository.updateEntity(user);
     }
 
     @Override
-    public void removeUser(User user) {
+    public void remove(User user) {
         userRepository.removeEntity(user);
     }
 
     @Override
-    public List<User> findAllUsersByType(UserType type) {
-        return userRepository.findByType(type);
+    public List<User> findAllByType(List<UserType> types) {
+        return userRepository.findByType(types);
     }
 
     @Override
-    public List<User> findAllUserByName(String name) {
+    public List<User> findAllByName(String name) {
         return userRepository.findByName(name);
     }
 
     @Override
-    public List<User> findAllUserByDescription(String description) {
+    public List<User> findAllByDescription(String description) {
         return userRepository.findByDescription(description);
     }
 }

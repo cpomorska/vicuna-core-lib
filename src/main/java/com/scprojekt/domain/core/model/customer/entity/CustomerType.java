@@ -1,6 +1,7 @@
-package com.scprojekt.domain.core.model.customer;
+package com.scprojekt.domain.core.model.customer.entity;
 
 
+import com.scprojekt.domain.core.shared.database.BaseEntity;
 import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "kundentyp")
-public class CustomerType {
+public class CustomerType extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

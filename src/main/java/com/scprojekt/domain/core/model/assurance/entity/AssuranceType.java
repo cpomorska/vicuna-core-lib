@@ -1,5 +1,6 @@
-package com.scprojekt.domain.core.model.assurance;
+package com.scprojekt.domain.core.model.assurance.entity;
 
+import com.scprojekt.domain.core.shared.database.BaseEntity;
 import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,17 +12,17 @@ import jakarta.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "versicherung")
-public class Assurance {
+@Table(name = "versicherungstyp")
+public class AssuranceType extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="versicherungsid")
-    long assuranceId;
+    @Column(name="versicherungstypid")
+    long assuranceTypeId;
 
     @SQLInjectionSafe
     @Column(name="versicherungstyp")
-    String assuranceType;
+    String assuranceVersicherungsType;
 
     @SQLInjectionSafe
     @Column(name="versicherungstypbeschreibung")
