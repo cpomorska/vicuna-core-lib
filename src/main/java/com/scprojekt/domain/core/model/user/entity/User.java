@@ -1,5 +1,6 @@
 package com.scprojekt.domain.core.model.user.entity;
 
+import com.scprojekt.domain.core.shared.database.BaseEntity;
 import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -15,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "benutzer")
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -26,7 +27,7 @@ public class User {
     @NotEmpty
     @ManyToMany(targetEntity = UserType.class, cascade = CascadeType.MERGE)
     @JoinColumn(nullable = false)
-    List<UserType> userType;
+    List<UserType> userTypes;
 
     @SQLInjectionSafe
     @Column(name="benutzername", nullable = false)

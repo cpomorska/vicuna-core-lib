@@ -1,5 +1,6 @@
 package com.scprojekt.domain.core.model.user.entity;
 
+import com.scprojekt.domain.core.shared.database.BaseEntity;
 import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "benutzertyp")
-public class UserType {
+public class UserType extends BaseEntity {
 
     @Id
     @Column(name="benutzertypid")

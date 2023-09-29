@@ -1,10 +1,11 @@
 package com.scprojekt.domain.test.service;
 
+import com.scprojekt.domain.core.model.user.dto.UuidResponse;
 import com.scprojekt.domain.core.model.user.entity.UserNumber;
 import com.scprojekt.domain.core.model.user.repository.UserRepository;
 import com.scprojekt.domain.core.model.user.entity.User;
 import com.scprojekt.domain.core.model.user.entity.UserType;
-import com.scprojekt.domain.core.service.DomainUserService;
+import com.scprojekt.example.DomainUserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,7 +37,7 @@ class DomainUserServiceTest {
     @Test
     void getUserById() {
         when(userRepository.findByIdInRepository(1)).thenReturn(createTestUser());
-        User result = domainUserService.getUser(1);
+        User result = domainUserService.getById(1);
         assertThat(result.getUserId()).isEqualTo(1);
     }
 
@@ -44,7 +45,7 @@ class DomainUserServiceTest {
     void getUserByUUID() {
         UUID testUuid = java.util.UUID.fromString(UUID_USER_1);
         when(userRepository.findByUUID(testUuid)).thenReturn(createTestUser());
-        User result = domainUserService.getUser(testUuid);
+        User result = domainUserService.getByUuid(testUuid);
         assertThat(result.getUserNumber().getUuid()).isEqualTo(testUuid);
     }
 
@@ -52,8 +53,8 @@ class DomainUserServiceTest {
     void createUser() {
         UUID testUuid = java.util.UUID.fromString(UUID_USER_1);
         User testUser = createTestUser();
-        UUID result = domainUserService.createUser(testUser);
-        assertThat(result).isNotNull().isEqualTo(testUuid);
+        UuidResponse result = domainUserService.create(testUser);
+        assertThat(result.getUuid()).isNotNull().isEqualTo(testUuid);
     }
 
     @Test
@@ -66,8 +67,8 @@ class DomainUserServiceTest {
         assertThat(testUser.getUserNumber().getUuid()).isEqualTo(orgUuid);
         testUser.setUserNumber(new UserNumber(testUuid));
 
-        domainUserService.updateUser(testUser);
-        User result = domainUserService.getUser(testUuid);
+        domainUserService.update(testUser);
+        User result = domainUserService.getByUuid(testUuid);
         assertThat(result.getUserNumber().getUuid()).isNotNull().isEqualTo(testUuid);
     }
 
@@ -77,8 +78,8 @@ class DomainUserServiceTest {
         User testUser = createTestUser();
         when(userRepository.findByUUID(any())).thenReturn(null);
 
-        domainUserService.removeUser(testUser);
-        User result = domainUserService.getUser(testUuid);
+        domainUserService.remove(testUser);
+        User result = domainUserService.getByUuid(testUuid);
         assertThat(result).isNull();
     }
 
@@ -86,12 +87,12 @@ class DomainUserServiceTest {
     void findAllUsersByType() {
         List<User> userList = new ArrayList<>();
         userList.add(createTestUser());
-        UserType expectedType = userList.get(0).getUserType().get(0);
+        UserType expectedType = userList.get(0).getUserTypes().get(0);
         when(userRepository.findByType(any())).thenReturn(userList);
 
-        List<User> result = domainUserService.findAllUsersByType(expectedType);
+        List<User> result = domainUserService.findAllByType(List.of(expectedType));
         assertThat(result.get(0)).isNotNull();
-        assertThat(result.get(0).getUserType().get(0)).isEqualTo(expectedType);
+        assertThat(result.get(0).getUserTypes().get(0)).isEqualTo(expectedType);
     }
 
     @Test
@@ -100,7 +101,7 @@ class DomainUserServiceTest {
         userList.add(createTestUser());
         when(userRepository.findByName(any())).thenReturn(userList);
 
-        List<User> result = domainUserService.findAllUserByName(TESTUSER);
+        List<User> result = domainUserService.findAllByName(TESTUSER);
         assertThat(result.get(0)).isNotNull();
         assertThat(result.get(0).getUserName()).isEqualTo(TESTUSER);
     }
@@ -111,7 +112,7 @@ class DomainUserServiceTest {
         userList.add(createTestUser());
         when(userRepository.findByDescription(any())).thenReturn(userList);
 
-        List<User> result = domainUserService.findAllUserByDescription(TESTUSER);
+        List<User> result = domainUserService.findAllByDescription(TESTUSER);
         assertThat(result.get(0)).isNotNull();
         assertThat(result.get(0).getUserDescription()).isEqualTo(TESTUSER);
     }
@@ -130,7 +131,7 @@ class DomainUserServiceTest {
         user.setUserName(TESTUSER);
         user.setUserDescription(TESTUSER);
         user.setUserNumber(new UserNumber(java.util.UUID.fromString(UUID_USER_1)));
-        user.setUserType(userTypeList);
+        user.setUserTypes(userTypeList);
 
         return user;
     }
