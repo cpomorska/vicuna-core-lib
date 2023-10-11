@@ -39,7 +39,7 @@ public class Customer extends BaseEntity {
     @Column(name="kundenanrede")
     private
     String customerSalutation;
-
+  
     @NoSQLInjection
     @Column(name="kundenname")
     private
@@ -72,6 +72,7 @@ public class Customer extends BaseEntity {
 
     @NoSQLInjection
     @Column(name="kundenplz")
+  
     private
     String customerZip;
 
