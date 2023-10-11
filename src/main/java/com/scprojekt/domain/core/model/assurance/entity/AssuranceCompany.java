@@ -19,12 +19,11 @@ public class AssuranceCompany extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="versicherungsfirmaid")
     long assuranceCompanyId;
-
+  
     @NoSQLInjection
     @Column(name="versicherungsfirmatyp")
     String assuranceCompanyType;
 
-    @NoSQLInjection
     @Column(name="versicherungsfirmabeschreibung")
     String assuranceCompanyTypeDescription;
 }
