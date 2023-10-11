@@ -1,7 +1,7 @@
 package com.scprojekt.domain.core.model.user.entity;
 
 import com.scprojekt.domain.core.shared.database.BaseEntity;
-import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
+import com.scprojekt.domain.core.shared.database.NoSQLInjection;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -29,7 +29,7 @@ public class User extends BaseEntity {
     @JoinColumn(nullable = false)
     List<UserType> userTypes;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="benutzername", nullable = false)
     String userName;
 
@@ -38,7 +38,7 @@ public class User extends BaseEntity {
     UserNumber userNumber;
 
     @NotNull
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="benutzerdescription")
     String userDescription;
 

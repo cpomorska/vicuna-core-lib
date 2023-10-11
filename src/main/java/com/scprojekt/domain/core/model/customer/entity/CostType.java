@@ -1,7 +1,7 @@
 package com.scprojekt.domain.core.model.customer.entity;
 
 import com.scprojekt.domain.core.shared.database.BaseEntity;
-import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
+import com.scprojekt.domain.core.shared.database.NoSQLInjection;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,11 +20,11 @@ public class CostType extends BaseEntity {
     @Column(name="kostentypid")
     long costTypeId;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kostentyp")
     String costKostenType;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kostentypbeschreibung")
     String costTypeDescription;
 }

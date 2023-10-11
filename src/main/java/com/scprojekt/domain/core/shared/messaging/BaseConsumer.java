@@ -1,7 +1,7 @@
 package com.scprojekt.domain.core.shared.messaging;
 
-import com.scprojekt.domain.core.model.user.dto.UuidResponse;
+import java.util.UUID;
 
 public interface BaseConsumer<T> {
-    UuidResponse receiveEvent(T eventType);
+    UUID receiveEvent(T eventType);
 }

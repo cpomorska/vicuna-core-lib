@@ -1,7 +1,7 @@
 package com.scprojekt.domain.core.model.user.entity;
 
 import com.scprojekt.domain.core.shared.database.BaseEntity;
-import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
+import com.scprojekt.domain.core.shared.database.NoSQLInjection;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,11 +20,11 @@ public class UserType extends BaseEntity {
     @Column(name="benutzertypid")
     long userTypeId;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="benutzerrolle")
     String userRoleType;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="benutzertypbeschreibung")
     String userTypeDescription;
 

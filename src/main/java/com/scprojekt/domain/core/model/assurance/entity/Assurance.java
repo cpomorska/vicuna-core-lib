@@ -1,7 +1,7 @@
 package com.scprojekt.domain.core.model.assurance.entity;
 
 import com.scprojekt.domain.core.shared.database.BaseEntity;
-import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
+import com.scprojekt.domain.core.shared.database.NoSQLInjection;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,11 +20,14 @@ public class Assurance extends BaseEntity {
     @Column(name="versicherungsid")
     long assuranceId;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="versicherungstyp")
     String assuranceType;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
+    @Column(name="versicherungstyp")
+    String assuranceType;
+
     @Column(name="versicherungstypbeschreibung")
     String assuranceTypeDescription;
 }
