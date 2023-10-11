@@ -1,7 +1,7 @@
 package com.scprojekt.domain.test.arch;
 
 import com.scprojekt.domain.core.shared.database.BaseEntity;
-import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
+import com.scprojekt.domain.core.shared.database.NoSQLInjection;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import jakarta.persistence.Embeddable;
@@ -54,7 +54,7 @@ class EntityRulesTest {
                 .arePackagePrivate()
                 .and().areDeclaredInClassesThat().resideInAPackage("..entity..")
                 .and().haveRawType(String.class)
-                .should().beAnnotatedWith(SQLInjectionSafe.class)
+                .should().beAnnotatedWith(NoSQLInjection.class)
                 .as("Fields with String type should be SQLInjection safe")
                 .allowEmptyShould(true)
                 .check(classes);

@@ -2,7 +2,7 @@ package com.scprojekt.domain.core.model.user.entity;
 
 import com.scprojekt.domain.core.model.user.event.UserEventType;
 import com.scprojekt.domain.core.shared.database.BaseEntity;
-import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
+import com.scprojekt.domain.core.shared.database.NoSQLInjection;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import java.util.*;
@@ -30,7 +30,7 @@ public class UserEvent extends BaseEntity {
     @Lob
     @Column(name="userhandlingevent")
     @NotNull
-    @SQLInjectionSafe
+    @NoSQLInjection
     String userHandlingEvent;
 
     @Column(name="isremovable")
