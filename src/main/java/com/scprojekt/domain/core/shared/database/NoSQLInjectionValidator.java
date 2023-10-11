@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SQLInjectionSafeConstraintValidator implements ConstraintValidator<SQLInjectionSafe, String> {
+public class NoSQLInjectionValidator implements ConstraintValidator<NoSQLInjection, String> {
     public static final String REPLACEMENT = ")(\\b)+\\s.*(.*)";
 
     public static final String SQL_TYPES =
@@ -43,7 +43,7 @@ public class SQLInjectionSafeConstraintValidator implements ConstraintValidator<
     private final List<Pattern> validationPatterns = getValidationPatterns();
 
     @Override
-    public void initialize(SQLInjectionSafe sqlInjectionSafe) {
+    public void initialize(NoSQLInjection noSqlInjection) {
         //NOSONAR
     }
 

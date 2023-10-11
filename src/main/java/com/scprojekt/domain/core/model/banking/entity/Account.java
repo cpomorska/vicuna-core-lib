@@ -2,7 +2,7 @@ package com.scprojekt.domain.core.model.banking.entity;
 
 
 import com.scprojekt.domain.core.shared.database.BaseEntity;
-import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
+import com.scprojekt.domain.core.shared.database.NoSQLInjection;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,11 +24,11 @@ public class Account extends BaseEntity {
     @OneToOne(orphanRemoval = true, targetEntity = AccountType.class, cascade = CascadeType.ALL)
     AccountType accountType;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kontobeschreibung")
     String accountDescription;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kontonnummer")
     String accountNumber;
 

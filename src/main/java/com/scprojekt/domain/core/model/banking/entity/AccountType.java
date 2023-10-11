@@ -2,7 +2,7 @@ package com.scprojekt.domain.core.model.banking.entity;
 
 
 import com.scprojekt.domain.core.shared.database.BaseEntity;
-import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
+import com.scprojekt.domain.core.shared.database.NoSQLInjection;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,11 +21,11 @@ public class AccountType extends BaseEntity {
     @Column(name="kontotypid")
     long accountTypeId;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kontotyp")
     String accountKontoType;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kontotypbeschreibung")
     String accountTypeDescription;
 }

@@ -1,7 +1,7 @@
 package com.scprojekt.domain.core.model.user.entity;
 
 import com.scprojekt.domain.core.shared.database.BaseEntity;
-import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
+import com.scprojekt.domain.core.shared.database.NoSQLInjection;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,11 +19,11 @@ public class UserHandlingEventType extends BaseEntity {
     @GeneratedValue
     private Long id;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(nullable = false)
     String eventType;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="benutzerdescription")
     String eventDescription;
 }

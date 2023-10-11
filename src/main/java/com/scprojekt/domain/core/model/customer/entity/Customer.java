@@ -1,7 +1,7 @@
 package com.scprojekt.domain.core.model.customer.entity;
 
 import com.scprojekt.domain.core.shared.database.BaseEntity;
-import com.scprojekt.domain.core.shared.database.SQLInjectionSafe;
+import com.scprojekt.domain.core.shared.database.NoSQLInjection;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,58 +23,59 @@ public class Customer extends BaseEntity {
     long customerId;
 
     @NotNull
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(unique = true, name="kundenummer")
     private String customerNumber;
 
     @OneToOne(orphanRemoval = true, targetEntity = CustomerType.class, cascade = CascadeType.ALL)
     private CustomerType customerType;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kundentitel")
     private
     String customerTitel;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kundenanrede")
     private
     String customerSalutation;
-
-    @SQLInjectionSafe
+  
+    @NoSQLInjection
     @Column(name="kundenname")
     private
     String customerName;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kundenmittelname")
     private
     String customerMiddlename;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kundenvorname")
     private
     String customerSurename;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kundenstrasse1")
     private
     String customerStreet1;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kundenstrasse2")
     private
     String customerStreet2;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kundenstrasse3")
     private
     String customerStreet3;
 
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kundenplz")
+  
     private
     String customerZip;
-    @SQLInjectionSafe
+    @NoSQLInjection
     @Column(name="kundenstadt")
     private
     String customerCity;
