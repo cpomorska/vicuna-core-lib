@@ -75,6 +75,7 @@ public class Customer extends BaseEntity {
   
     private
     String customerZip;
+
     @NoSQLInjection
     @Column(name="kundenstadt")
     private

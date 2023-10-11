@@ -24,11 +24,12 @@
         <junit.version>5.9.3</junit.version>
         <mockito.version>5.4.0</mockito.version>
         <assertj.version>3.24.2</assertj.version>
-        <jaccoco.version>0.8.9</jaccoco.version>
+        <jaccoco.version>0.8.10</jaccoco.version>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <surefire.version>3.0.0</surefire.version>
         <jackson.version>2.15.2</jackson.version>
-        <archunit.version>1.0.1</archunit.version>
+        <archunit.version>${archunit-junit5-engine.version}</archunit.version>
+        <archunit-junit5-engine.version>1.0.1</archunit-junit5-engine.version>
     </properties>
 
     <dependencies>
@@ -99,7 +100,7 @@
         <dependency>
             <groupId>com.tngtech.archunit</groupId>
             <artifactId>archunit-junit5-engine</artifactId>
-            <version>1.0.1</version>
+            <version>${archunit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

@@ -30,7 +30,6 @@ public class UserEvent extends BaseEntity {
     @Lob
     @Column(name="userhandlingevent")
     @NotNull
-
     @NoSQLInjection
     String userHandlingEvent;
 

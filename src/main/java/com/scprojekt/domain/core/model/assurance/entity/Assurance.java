@@ -25,9 +25,6 @@ public class Assurance extends BaseEntity {
     String assuranceType;
 
     @NoSQLInjection
-    @Column(name="versicherungstyp")
-    String assuranceType;
-
     @Column(name="versicherungstypbeschreibung")
     String assuranceTypeDescription;
 }
