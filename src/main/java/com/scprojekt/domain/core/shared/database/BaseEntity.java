@@ -3,11 +3,7 @@ package com.scprojekt.domain.core.shared.database;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
 
 @MappedSuperclass
 public class BaseEntity {
