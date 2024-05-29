@@ -15,33 +15,31 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "benutzer")
+@Table(name = "user")
 public class User extends BaseEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name= "benutzerid_seq", sequenceName="BENUTZERID_SEQ", allocationSize=1)
-    @Column(name="benutzerid")
-    long userId;
+    @SequenceGenerator(name = "userid_seq", sequenceName = "USERID_SEQ", allocationSize = 1)
+    @Column(name = "id")
+    long id;
 
     @NotEmpty
     @ManyToMany(cascade = CascadeType.ALL)
     @CollectionTable
     private List<UserType> userTypes;
 
-    @NoSQLInjection
-    @Column(name="benutzername", nullable = false)
-    String userName;
-
     @Embedded
-    @Column(nullable = false)
     UserNumber userNumber;
-
-    @NotNull
-    @NoSQLInjection
-    @Column(name="benutzerdescription")
-    String userDescription;
 
     @Embedded
     UserHash userHash;
+
+    @NoSQLInjection
+    @Column(name = "username", nullable = false)
+    String userName;
+
+    @NotNull
+    @NoSQLInjection
+    @Column(name = "description")
+    String userDescription;
 }

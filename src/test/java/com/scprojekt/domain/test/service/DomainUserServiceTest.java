@@ -38,7 +38,7 @@ class DomainUserServiceTest {
     void getUserById() {
         when(userRepository.findByIdInRepository(1)).thenReturn(createTestUser());
         User result = domainUserService.getById(1);
-        assertThat(result.getUserId()).isEqualTo(1);
+        assertThat(result.getId()).isEqualTo(1);
     }
 
     @Test
@@ -127,7 +127,7 @@ class DomainUserServiceTest {
         userType.setUserTypeDescription(TESTUSER);
         userTypeList.add(userType);
 
-        user.setUserId(1);
+        user.setId(1);
         user.setUserName(TESTUSER);
         user.setUserDescription(TESTUSER);
         user.setUserNumber(new UserNumber(java.util.UUID.fromString(UUID_USER_1)));
