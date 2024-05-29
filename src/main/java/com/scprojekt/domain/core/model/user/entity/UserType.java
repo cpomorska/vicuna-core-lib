@@ -27,7 +27,4 @@ public class UserType extends BaseEntity {
     @NoSQLInjection
     @Column(name="benutzertypbeschreibung")
     String userTypeDescription;
-
-    @OneToMany
-    List<User> user;
 }

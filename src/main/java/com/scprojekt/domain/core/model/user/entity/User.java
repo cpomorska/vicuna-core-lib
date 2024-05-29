@@ -25,9 +25,9 @@ public class User extends BaseEntity {
     long userId;
 
     @NotEmpty
-    @ManyToMany(targetEntity = UserType.class, cascade = CascadeType.MERGE)
-    @JoinColumn(nullable = false)
-    List<UserType> userTypes;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @CollectionTable
+    private List<UserType> userTypes;
 
     @NoSQLInjection
     @Column(name="benutzername", nullable = false)
