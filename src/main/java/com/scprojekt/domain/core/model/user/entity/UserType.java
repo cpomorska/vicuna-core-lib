@@ -7,27 +7,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "benutzertyp")
+@Table(name = "user_type")
 public class UserType extends BaseEntity {
-
     @Id
-    @Column(name="benutzertypid")
+    @Column(name = "user_type_id")
     long userTypeId;
 
     @NoSQLInjection
-    @Column(name="benutzerrolle")
+    @Column(name = "user_role_type")
     String userRoleType;
 
     @NoSQLInjection
-    @Column(name="benutzertypbeschreibung")
+    @Column(name = "user_type_description")
     String userTypeDescription;
-
-    @OneToMany
-    List<User> user;
 }
