@@ -17,14 +17,14 @@
         <sonar.organization>cpomorska</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.exclusions>src/main/java/com.scprojekt.domain.entities/*</sonar.exclusions>
-        <persistence.version>3.1.0</persistence.version>
-        <validation.version>3.0.2</validation.version>
+        <persistence.version>3.2.0</persistence.version>
+        <validation.version>3.1.0</validation.version>
         <inject.version>2.0.1</inject.version>
         <lombok.version>1.18.30</lombok.version>
-        <junit.version>5.10.1</junit.version>
+        <junit.version>5.11.1</junit.version>
         <mockito.version>5.8.0</mockito.version>
         <assertj.version>3.25.1</assertj.version>
-        <jaccoco.version>0.8.11</jaccoco.version>
+        <jaccoco.version>0.8.12</jaccoco.version>
         <maven.compiler.version>3.12.1</maven.compiler.version>
         <surefire.version>3.2.3</surefire.version>
         <jackson.version>2.16.1</jackson.version>
