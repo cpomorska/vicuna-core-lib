@@ -18,7 +18,7 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.exclusions>src/main/java/com.scprojekt.domain.entities/*</sonar.exclusions>
         <persistence.version>3.2.0</persistence.version>
-        <validation.version>3.1.0</validation.version>
+        <validation.version>3.1.1</validation.version>
         <inject.version>2.0.1.MR</inject.version>
         <lombok.version>1.18.30</lombok.version>
         <junit.version>5.11.1</junit.version>
