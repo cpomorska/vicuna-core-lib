@@ -8,6 +8,7 @@ import com.scprojekt.domain.core.model.user.event.UserCreatedEvent;
 import com.scprojekt.domain.core.model.user.event.UserDisabledEvent;
 import com.scprojekt.domain.core.model.user.event.UserUpdatedEvent;
 import com.scprojekt.domain.core.model.user.exception.UserCreationException;
+import com.scprojekt.domain.core.shared.aggregate.BaseAggregate;
 import com.scprojekt.domain.core.shared.event.DomainEventPublisher;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.util.UUID;
  * This class follows the DDD aggregate pattern, ensuring that all changes to the User and its
  * associated value objects go through the aggregate root, maintaining consistency.
  */
-public class UserAggregate {
+public class UserAggregate implements BaseAggregate {
     
     private final User user;
     
