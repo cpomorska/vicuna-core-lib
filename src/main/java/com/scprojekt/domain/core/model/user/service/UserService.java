@@ -2,7 +2,6 @@ package com.scprojekt.domain.core.model.user.service;
 
 import com.scprojekt.domain.core.model.user.dto.UuidResponse;
 import com.scprojekt.domain.core.model.user.entity.User;
-import com.scprojekt.domain.core.model.user.entity.UserHash;
 import com.scprojekt.domain.core.model.user.entity.UserType;
 import com.scprojekt.domain.core.shared.service.BaseService;
 

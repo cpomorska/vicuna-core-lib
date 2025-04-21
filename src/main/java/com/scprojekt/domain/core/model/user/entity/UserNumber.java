@@ -3,7 +3,6 @@ package com.scprojekt.domain.core.model.user.entity;
 import com.scprojekt.domain.core.model.user.exception.UserCreationException;
 import jakarta.persistence.Lob;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

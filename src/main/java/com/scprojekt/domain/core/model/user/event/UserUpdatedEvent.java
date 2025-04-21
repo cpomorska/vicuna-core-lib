@@ -1,6 +1,8 @@
 package com.scprojekt.domain.core.model.user.event;
 
 import com.scprojekt.domain.core.shared.event.DomainEvent;
+import lombok.AccessLevel;
+import lombok.Getter;
 
 import java.util.UUID;
 
