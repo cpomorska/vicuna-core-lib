@@ -4,6 +4,7 @@ import com.scprojekt.domain.core.model.customer.entity.Customer;
 import com.scprojekt.domain.core.model.customer.entity.CustomerType;
 import com.scprojekt.domain.core.model.customer.event.CustomerUpdatedEvent;
 import com.scprojekt.domain.core.model.customer.exception.CustomerCreationException;
+import com.scprojekt.domain.core.shared.aggregate.BaseAggregate;
 import com.scprojekt.domain.core.shared.event.DomainEventPublisher;
 
 import java.util.UUID;
@@ -15,8 +16,8 @@ import java.util.UUID;
  * This class follows the DDD aggregate pattern, ensuring that all changes to the Customer and its
  * associated value objects go through the aggregate root, maintaining consistency.
  */
-public class CustomerAggregate {
-    
+public class CustomerAggregate implements BaseAggregate {
+
     private final Customer customer;
     
     /**
