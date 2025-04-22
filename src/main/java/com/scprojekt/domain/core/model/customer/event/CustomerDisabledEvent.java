@@ -12,17 +12,11 @@ import java.util.UUID;
 @Getter
 public class CustomerDisabledEvent extends DomainEvent {
     /**
-     * -- GETTER --
      *  Gets the ID of the disabled customer
-     *
-     * @return The customer ID
      */
     private final UUID customerId;
     /**
-     * -- GETTER --
      *  Gets the name of the disabled customer
-     *
-     * @return The customer name
      */
     private final String customerName;
     

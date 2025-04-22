@@ -12,17 +12,11 @@ import java.util.UUID;
 @Getter
 public class UserCreatedEvent extends DomainEvent {
     /**
-     * -- GETTER --
      *  Gets the ID of the created user
-     *
-     * @return The user ID
      */
     private final UUID userId;
     /**
-     * -- GETTER --
      *  Gets the username of the created user
-     *
-     * @return The username
      */
     private final String userName;
     
