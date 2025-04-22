@@ -22,7 +22,7 @@ class AggregateRulesTest {
     }
 
     @Test
-    void aggreagtes_must_extend_baseaggregate_interface() {
+    void aggregates_must_extend_baseaggregate_interface() {
         classes().that().haveNameMatching(".*Aggregate")
                 .and().resideOutsideOfPackage("..shared..")
                 .and().resideInAPackage("..aggregate..")

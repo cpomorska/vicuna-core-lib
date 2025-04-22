@@ -1,6 +1,7 @@
 package com.scprojekt.domain.core.model.user.event;
 
 import com.scprojekt.domain.core.shared.event.DomainEvent;
+import lombok.Getter;
 
 import java.util.UUID;
 
@@ -8,8 +9,15 @@ import java.util.UUID;
  * Domain event that is published when a user is disabled.
  * This event can be used by other bounded contexts that need to react to user disabling.
  */
+@Getter
 public class UserDisabledEvent extends DomainEvent {
+    /**
+     *  Gets the ID of the disabled user
+     */
     private final UUID userId;
+    /**
+     *  Gets the username of the disabled user
+     */
     private final String userName;
     
     /**
@@ -23,22 +31,5 @@ public class UserDisabledEvent extends DomainEvent {
         this.userId = userId;
         this.userName = userName;
     }
-    
-    /**
-     * Gets the ID of the disabled user
-     * 
-     * @return The user ID
-     */
-    public UUID getUserId() {
-        return userId;
-    }
-    
-    /**
-     * Gets the username of the disabled user
-     * 
-     * @return The username
-     */
-    public String getUserName() {
-        return userName;
-    }
+
 }
