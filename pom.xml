@@ -27,7 +27,7 @@
         <jaccoco.version>0.8.13</jaccoco.version>
         <maven.compiler.version>3.14.0</maven.compiler.version>
         <surefire.version>3.5.3</surefire.version>
-        <jackson.version>2.18.3</jackson.version>
+        <jackson.version>2.19.0</jackson.version>
         <archunit.version>1.4.0</archunit.version>
         <archunit-junit5-engine.version>1.3.0</archunit-junit5-engine.version>
     </properties>
