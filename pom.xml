@@ -21,7 +21,7 @@
         <validation.version>3.1.1</validation.version>
         <inject.version>2.0.1.MR</inject.version>
         <lombok.version>1.18.38</lombok.version>
-        <junit.version>5.12.2</junit.version>
+        <junit.version>5.13.0</junit.version>
         <mockito.version>5.18.0</mockito.version>
         <assertj.version>3.27.3</assertj.version>
         <jaccoco.version>0.8.13</jaccoco.version>
