@@ -22,4 +22,5 @@ module vicuna.core.lib {
     opens com.scprojekt.domain.core.model.customer.entity to junit, vicuna.app, vicuna.infra;
     opens com.scprojekt.domain.core.model.banking.entity to junit, vicuna.app, vicuna.infra;
     opens com.scprojekt.domain.core.model.assurance.entity to junit, vicuna.app, vicuna.infra;
+    opens com.scprojekt.domain.core.model.banking.enums to junit, vicuna.app, vicuna.infra;
 }

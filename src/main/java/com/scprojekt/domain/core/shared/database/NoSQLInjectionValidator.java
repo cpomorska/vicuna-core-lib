@@ -77,7 +77,7 @@ public class NoSQLInjectionValidator implements ConstraintValidator<NoSQLInjecti
         return Pattern.compile(regEx, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
     }
     private boolean isEmpty(CharSequence cs) {
-        return cs == null || cs.length() == 0;
+        return cs == null || cs.isEmpty();
     }
 
 }
