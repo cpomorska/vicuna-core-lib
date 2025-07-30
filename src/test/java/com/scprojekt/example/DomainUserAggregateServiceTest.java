@@ -9,12 +9,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -22,6 +22,9 @@ class DomainUserAggregateServiceTest {
 
     @Mock
     private UserRepository userRepository;
+
+    @Mock
+    private UserAggregateServiceImpl userAggregateService;
 
     @InjectMocks
     private DomainUserAggregateService domainUserAggregateService;
@@ -40,7 +43,7 @@ class DomainUserAggregateServiceTest {
         UserAggregate mockUser = UserAggregate.createUser("testuser", "Test User", List.of(userType), password);
 
         // Configure mock behavior
-        when(userRepository.findByName(anyString())).thenReturn(List.of(mockUser.getUser()));
+        when(userAggregateService.authenticateUser(any(), any())).thenReturn(Optional.of(mockUser));
 
         // Execute method under test
         boolean result = domainUserAggregateService.authenticateUser(username, password);
@@ -54,9 +57,6 @@ class DomainUserAggregateServiceTest {
         // Prepare test data
         String username = "testuser";
         String password = "wrongpassword";
-
-        // Configure mock behavior
-        when(userRepository.findByName(anyString())).thenReturn(new ArrayList<>());
 
         // Execute method under test
         boolean result = domainUserAggregateService.authenticateUser(username, password);
