@@ -1,10 +1,11 @@
-package com.scprojekt.domain.core.model.user.service;
+package com.scprojekt.example;
 
 import com.scprojekt.domain.core.model.user.aggregate.UserAggregate;
 import com.scprojekt.domain.core.model.user.dto.UuidResponse;
 import com.scprojekt.domain.core.model.user.entity.User;
 import com.scprojekt.domain.core.model.user.entity.UserType;
 import com.scprojekt.domain.core.model.user.repository.UserRepository;
+import com.scprojekt.domain.core.model.user.service.UserAggregateService;
 import jakarta.inject.Inject;
 import lombok.RequiredArgsConstructor;
 
@@ -17,7 +18,7 @@ import java.util.UUID;
  * This service implements the business logic for user management using the UserAggregate.
  */
 @RequiredArgsConstructor(onConstructor_ = @Inject)
-public class DomainUserAggregateService implements UserAggregateService {
+public class UserAggregateServiceImpl implements UserAggregateService {
 
     private final UserRepository userRepository;
 

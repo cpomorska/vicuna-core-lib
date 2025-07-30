@@ -29,7 +29,7 @@ public class DomainUserAggregateService {
      * @param userRepository The user repository
      */
     public DomainUserAggregateService(UserRepository userRepository) {
-        this.userService = new com.scprojekt.domain.core.model.user.service.DomainUserAggregateService(userRepository);
+        this.userService = new UserAggregateServiceImpl(userRepository);
     }
     
     /**
