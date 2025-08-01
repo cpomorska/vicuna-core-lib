@@ -15,7 +15,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.lenient;
 
 @ExtendWith(MockitoExtension.class)
 class DomainUserAggregateServiceTest {
@@ -43,7 +43,10 @@ class DomainUserAggregateServiceTest {
         UserAggregate mockUser = UserAggregate.createUser("testuser", "Test User", List.of(userType), password);
 
         // Configure mock behavior
-        when(userAggregateService.authenticateUser(any(), any())).thenReturn(Optional.of(mockUser));
+        lenient().when(userRepository.findByName(any())).thenReturn(List.of(mockUser.getUser()));
+
+        // Configure mock behavior
+        lenient().when(userAggregateService.authenticateUser(any(), any())).thenReturn(Optional.of(mockUser));
 
         // Execute method under test
         boolean result = domainUserAggregateService.authenticateUser(username, password);
