@@ -23,7 +23,7 @@
         <lombok.version>1.18.42</lombok.version>
         <junit.version>5.13.4</junit.version>
         <mockito.version>5.19.0</mockito.version>
-        <assertj.version>3.27.4</assertj.version>
+        <assertj.version>3.27.5</assertj.version>
         <jaccoco.version>0.8.13</jaccoco.version>
         <maven.compiler.version>3.14.0</maven.compiler.version>
         <surefire.version>3.5.4</surefire.version>
