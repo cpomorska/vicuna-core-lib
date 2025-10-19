@@ -24,7 +24,7 @@
         <junit.version>6.0.0</junit.version>
         <mockito.version>5.20.0</mockito.version>
         <assertj.version>3.27.6</assertj.version>
-        <jaccoco.version>0.8.13</jaccoco.version>
+        <jaccoco.version>0.8.14</jaccoco.version>
         <maven.compiler.version>3.14.1</maven.compiler.version>
         <surefire.version>3.5.4</surefire.version>
         <jackson.version>2.20.0</jackson.version>
