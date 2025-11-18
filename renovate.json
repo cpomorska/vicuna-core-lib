@@ -3,10 +3,15 @@
   "extends": [
     "config:recommended"
   ],
-  ],
   "packageRules": [
     {
-      "automerge": true
+      "automerge": true,
+      "matchPackageNames": [
+        "*"
+      ]
     }
-  ]
+  ],
+  "timezone": "Europe/Berlin",
+  "description": "only on weekends between 3 and 4",
+  "schedule": ["* 3,4 * * 0,6"]
 }
