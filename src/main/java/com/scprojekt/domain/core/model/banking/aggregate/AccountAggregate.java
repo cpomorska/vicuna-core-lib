@@ -15,7 +15,6 @@ import com.scprojekt.domain.core.model.banking.dto.Money;
 import com.scprojekt.domain.core.shared.aggregate.BaseAggregate;
 import com.scprojekt.domain.core.shared.event.DomainEventPublisher;
 import lombok.Getter;
-import lombok.extern.java.Log;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -30,7 +29,6 @@ import java.util.UUID;
  * This class follows the DDD aggregate pattern, ensuring that all changes to the Account and its
  * associated value objects go through the aggregate root, maintaining consistency.
  */
-@Log
 @Getter
 public final class AccountAggregate implements BaseAggregate {
 
