@@ -13,7 +13,6 @@ import lombok.extern.java.Log;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 /**
  * Implementation of the UserService that provides domain-specific user operations.
@@ -157,6 +156,6 @@ public class DomainUserService implements UserService {
 
         return allUsers.stream()
                 .filter(user -> user.getUserName().contains(usernamePattern))
-                .collect(Collectors.toList());
+                .toList();
     }
 }
