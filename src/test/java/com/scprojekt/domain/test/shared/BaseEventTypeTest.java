@@ -14,7 +14,6 @@ class BaseEventTypeTest {
         Map<String, BaseEventType> enumMap = new HashMap<>();
         EnumSet<BaseEventType> enumList = EnumSet.allOf(BaseEventType.class);
         enumList.forEach(e -> enumMap.put(e.getValue(),e));
-        List<String> eventlist = enumList.stream().map(e -> e.getValue()).toList();
 
         enumList.forEach(e -> assertThat(e.equalsEvent(String.valueOf(enumMap.get(e.getValue())))).isTrue());
     }

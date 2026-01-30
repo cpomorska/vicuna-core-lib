@@ -4,7 +4,6 @@ import com.scprojekt.domain.core.model.user.aggregate.UserAggregate;
 import com.scprojekt.domain.core.model.user.dto.UuidResponse;
 import com.scprojekt.domain.core.model.user.entity.UserType;
 import com.scprojekt.domain.core.model.user.repository.UserRepository;
-import com.scprojekt.domain.core.model.user.service.DomainUserAggregateService;
 import com.scprojekt.domain.core.model.user.service.UserAggregateService;
 import jakarta.inject.Inject;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +19,7 @@ import java.util.UUID;
  */
 @Log
 @RequiredArgsConstructor(onConstructor_ = @Inject)
-public class DomainUserAggregateServiceExample {
+public class DomainUserAggregateService {
 
     private final UserAggregateService userService;
     
@@ -29,8 +28,8 @@ public class DomainUserAggregateServiceExample {
      * 
      * @param userRepository The user repository
      */
-    public DomainUserAggregateServiceExample(UserRepository userRepository) {
-        this.userService = new DomainUserAggregateService(userRepository);
+    public DomainUserAggregateService(UserRepository userRepository) {
+        this.userService = new UserAggregateServiceImpl(userRepository);
     }
     
     /**

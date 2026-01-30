@@ -29,7 +29,7 @@ class DomainUserServiceTest {
     private UserRepository userRepository;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         userRepository = mock(UserRepository.class);
         domainUserService = new DomainUserService(userRepository);
     }

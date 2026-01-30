@@ -117,6 +117,7 @@ public class User extends BaseEntity {
     /**
      * Disables the user
      */
+    @Override
     public void disable() {
         this.setEnabled(false);
 

@@ -1,6 +1,7 @@
 package com.scprojekt.domain.core.model.customer.event;
 
 import com.scprojekt.domain.core.shared.event.DomainEvent;
+import lombok.Getter;
 
 import java.util.UUID;
 
@@ -8,8 +9,15 @@ import java.util.UUID;
  * Domain event that is published when a customer is disabled.
  * This event can be used by other bounded contexts that need to react to customer disabling.
  */
+@Getter
 public class CustomerDisabledEvent extends DomainEvent {
+    /**
+     *  Gets the ID of the disabled customer
+     */
     private final UUID customerId;
+    /**
+     *  Gets the name of the disabled customer
+     */
     private final String customerName;
     
     /**
@@ -23,22 +31,5 @@ public class CustomerDisabledEvent extends DomainEvent {
         this.customerId = customerId;
         this.customerName = customerName;
     }
-    
-    /**
-     * Gets the ID of the disabled customer
-     * 
-     * @return The customer ID
-     */
-    public UUID getCustomerId() {
-        return customerId;
-    }
-    
-    /**
-     * Gets the name of the disabled customer
-     * 
-     * @return The customer name
-     */
-    public String getCustomerName() {
-        return customerName;
-    }
+
 }
