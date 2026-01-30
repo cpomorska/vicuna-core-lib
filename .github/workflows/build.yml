@@ -14,9 +14,9 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            java: 17
-          - os: ubuntu-latest
             java: 21
+          - os: ubuntu-latest
+            java: 25
     runs-on: ${{ matrix.os }}
     permissions:
       contents: read
@@ -42,7 +42,7 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B clean verifiy org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=cpomorska_vicuna-core-lib
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B clean verify #org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=cpomorska_vicuna-core-lib
