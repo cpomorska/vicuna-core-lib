@@ -20,7 +20,7 @@
         <persistence.version>3.2.0</persistence.version>
         <validation.version>3.1.1</validation.version>
         <inject.version>2.0.1.MR</inject.version>
-        <lombok.version>1.18.42</lombok.version>
+        <lombok.version>1.18.44</lombok.version>
         <junit.version>6.0.3</junit.version>
         <mockito.version>5.22.0</mockito.version>
         <assertj.version>3.27.7</assertj.version>
